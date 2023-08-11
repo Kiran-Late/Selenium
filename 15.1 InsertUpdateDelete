@@ -1,0 +1,34 @@
+Python Program to insert, update, delete data from MySQL
+
+-------------------------------------------------------------------------------------------------------
+import mysql.connector
+
+# Insert data example: insert_query = "insert into table_name values('field1_value', 'field2_value')"
+insert_query = "insert into student values(104, 'XYZ')"
+
+# update_query = "update table_name set field_name='value' where field_name='value'
+update_query = "update student set stu_name='Maria' where sr_no=104
+
+# Delete row from data Example: delete_query = "delete from table_name where field_name='value'
+delete_query = "delete from student where sr_no=104
+
+# try and except block will handle exception if not able to connect to database
+try:
+      # First we can establish connection with our database server
+      con=mysql.connector.connect(host="localhost", port=3306, user="root", passwd="root", database="mydb")
+except:
+      print("Problem Connecting to Database")
+      
+# crate cursor to store buffer 
+curs=con.cursor()    
+
+# Execute query/operation we have to perform on database
+curs.execute(insert_query)
+curs.execute(update_query)
+curs.execute(delete_query)
+
+# commit or save the changes to database
+con.commit()
+
+# close the connection to database
+con.close()
