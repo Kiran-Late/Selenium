@@ -1,0 +1,37 @@
+MySQL
+------
+To communicate with the data base we use Structure Query Languae (SQL)
+
+SQL
+----
+
+Data Definition Language(DDL) - create, alter, drop, truncate.
+Data Manipulation Language(DML) - insert, update, delete
+Data Retrival Language (DRL) - select
+Transaction Control Language(TCL) - commit, rollback
+Data Control Language (DCL) - grant, revoke
+
+- Install "mysql-commector-python" package in Pycharm to work with SQL from Python.
+File-->Settings-->Project:<SeleniumProject>-->Python Interprpeter--> + --> search 'mysql-commector-python' --> Install
+
+Python Program to insert, update, delete data from MySQL
+
+-------------------------------------------------------------------------------------------------------
+import mysql.connector
+
+# First we can establish connection with our database server
+con=mysql.connector.connect(host="localhost", port=3306, user="root", passwd="root", database="mydb")
+
+# crate cursor to store buffer 
+curs=con.cursor()    
+
+# Execute query/operation we have to perform on database
+curs.execute("insert into table_name values(104, 'Kim")")
+
+# commit or save the changes to database
+con.commit()
+
+# close the connection to database
+con.close()
+
+-------------------------------------------------------------------------------------------------------
